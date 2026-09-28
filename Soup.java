@@ -26,29 +26,29 @@ public class Soup {
     }
 
 //below are the functions you'll be writing.
-
+    
     //adds a word to the pool of letters known as "letters"
     public void add(String word){
-
+    letters += word;
     }
 
 
     //Use Math.random() to get a random character from the letters string and return it.
     public char randomLetter(){
-        return 'a';
+        return letters.charAt((int)(Math.random()*letters.length()));
     }
 
 
     //returns the letters currently stored with the company name placed directly in the center of all
     //the letters
     public String companyCentered(){
-        return "";
+        return letters.substring(0,letters.length() / 2) + company + letters.substring(letters.length() / 2);
     }
 
 
     //should remove the first available vowel from letters. If there are no vowels this method has no effect.
     public void removeFirstVowel(){
-        
+        System.out.println(letters.replaceFirst("[aeiou], ""));
     }
 
     //should remove "num" letters from a random spot in the string letters. You may assume num never exceeds the length of the string.
