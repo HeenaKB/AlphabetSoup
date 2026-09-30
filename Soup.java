@@ -56,7 +56,7 @@ public class Soup {
     //precondition: letters contains a vowel.
     //postcondition: letters no longer contains the first vowel found
     public void removeFirstVowel(){
-        System.out.println(letters.replaceFirst("[aeiou], ""));
+        letters = letters.replaceFirst("[aeiou]", "");
     }
 
     //precondition: num is valid and less than or equal to length of letters.
