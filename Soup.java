@@ -1,3 +1,7 @@
+//Name: Heena KB
+//Date: 09/29/26
+//This program creates a soup object that stores a collection of letters and a company name. Different commands can be used to do things like adding and moving around the letters.
+
 public class Soup {
     //precondition: letters and company are declared.
     //postcondition: letters is empty and company is "none".
