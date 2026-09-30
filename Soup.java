@@ -1,65 +1,78 @@
 public class Soup {
-    //these are instance variables 
+    //precondition: letters and company are declared.
+    //postcondition: letters is empty and company is "none".
     private String letters;
     private String company;
 
-    //this is a constructor it sets the instance variables (more on this later in the year)
+    //precondition: soup object is created.
+    //postcondition: letters is "" and compy is "none".
     public Soup(){
         letters ="";
         company = "none";
     }
 
 
-    //sets the name of the company to the provided name
+    //precondition: company is a valid string.
+    //postcondition: company is updated.
     public void setCompany(String company){
         this.company = company;
     }
 
-    //returns the company name
+    //precondition: Soup object exitsts.
+    //postcondition: returns company.
     public String getCompany(){
         return company;
     }
 
-    //returns letters
+    //precondition: soudp object exists.
+    //postcondition: returns letters.
     public String getLetters(){
         return letters;
     }
 
 //below are the functions you'll be writing.
     
-    //adds a word to the pool of letters known as "letters"
+    //precondition: word is a valid string.
+    //postcondition: word is added to letters.
     public void add(String word){
     letters += word;
     }
 
 
-    //Use Math.random() to get a random character from the letters string and return it.
+    //precondition: letters is not empty.
+    //postcondition: returns a random letter.
     public char randomLetter(){
         return letters.charAt((int)(Math.random()*letters.length()));
     }
 
 
-    //returns the letters currently stored with the company name placed directly in the center of all
-    //the letters
+    //precondition: letters and company are valid.
+    //postcondition: returns company in the center.
     public String companyCentered(){
         return letters.substring(0,letters.length() / 2) + company + letters.substring(letters.length() / 2);
     }
 
 
-    //precondition: letters variable is non-null and is a valid string, ...
+    //precondition: letters contains a vowel.
     //postcondition: letters no longer contains the first vowel found
     public void removeFirstVowel(){
         System.out.println(letters.replaceFirst("[aeiou], ""));
     }
 
-    //should remove "num" letters from a random spot in the string letters. You may assume num never exceeds the length of the string.
+    //precondition: num is valid and less than or equal to length of letters.
+    //postcondition: num random letters are removed.
     public void removeSome(int num){
-        int random = ((Math.random() * letters.length());
+        int random = (int)(Math.random() * (letters.length() - num + 1));
+        letters = letters.substring(0,random) + letters.substring(random + num);
         
     }
 
-    //should remove the word "word" from the string letters. If the word is not found in letters then it does nothing.
+    //precondition: word is a valid string.
+    //postcondition: first occurrence of word is removed.
     public void removeWord(String word){
-        
+        int index = letters.indexOf(word);
+        if(index != -1){
+          letters = letters.substring(0, index) + letters.substring(index + word.length());
+        }
     }
 }
